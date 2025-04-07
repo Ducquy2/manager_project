@@ -28,8 +28,9 @@ public class AccountController {
 	@Autowired
 	private RoleService roleService;
 	@Autowired
-    public JavaMailSender emailSender;
-	
+	public JavaMailSender emailSender;
+
+	// Xử lý GET request để lấy danh sách tài khoản
 	@GetMapping(value = "/account")
 	public ModelAndView getAllAccount() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -42,57 +43,59 @@ public class AccountController {
 		return modelAndView;
 	}
 
+	// Xử lý GET request để xóa tài khoản theo ID
 	@GetMapping(value = "/account/delete/{id}")
-	public String deleteAccount(@PathVariable int id, Model model,RedirectAttributes redirect) {
+	public String deleteAccount(@PathVariable int id, Model model, RedirectAttributes redirect) {
 		accountService.deleteAccount(id);
-		redirect.addFlashAttribute("notification","bạn đã xóa account thành công !");
+		redirect.addFlashAttribute("notification", "bạn đã xóa account thành công !");
 		return "redirect:/account";
 	}
-	
+
+	// Xử lý GET request để hiển thị form thêm tài khoản
 	@GetMapping("/account/add")
 	public ModelAndView add() {
 		ModelAndView model = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
 		model.addObject("username", name);
-		
-		model.addObject("account",new Account());
-		model.addObject("roles",roleService.getAllRole());
+
+		model.addObject("account", new Account());
+		model.addObject("roles", roleService.getAllRole());
 		model.setViewName("accountform");
 		return model;
 	}
 
-	@RequestMapping(value = "/account/save", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("account") Account account,RedirectAttributes redirect) {
+	@RequestMapping(value = "/account/save", method = RequestMethod.POST) // Xử lý POST request để lưu tài khoản
+	public ModelAndView save(@ModelAttribute("account") Account account, RedirectAttributes redirect) {
 		if (accountService.saveAccount(account) == null) {
 			return new ModelAndView("redirect:/error/400");
 		}
 		accountService.saveAccount(account);
-		 // Create a Simple MailMessage.
-        SimpleMailMessage message = new SimpleMailMessage();
-         
-        message.setTo(account.getAccountName());
-        message.setSubject("Account has been created !");
-        message.setText("Hello"+account.getAccountName() + ", \r\n" + 
-        		"You have successfully action an account");
-        // Send Message!
-        this.emailSender.send(message);
-        redirect.addFlashAttribute("notification","bạn đã lưu account thành công !");
+		// Create a Simple MailMessage.
+		SimpleMailMessage message = new SimpleMailMessage();
+
+		message.setTo(account.getAccountName());
+		message.setSubject("Account has been created !");
+		message.setText("Hello" + account.getAccountName() + ", \r\n" + "You have successfully action an account");
+		// Send Message!
+		this.emailSender.send(message);
+		redirect.addFlashAttribute("notification", "bạn đã lưu account thành công !");
 		return new ModelAndView("redirect:/account");
 	}
-	
+
+	// Xử lý GET request để hiển thị form chỉnh sửa tài khoản
 	@GetMapping("/account/{id}/edit")
 	public ModelAndView edit(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
 		modelAndView.addObject("username", name);
-		
+
 		Account account = accountService.getAccountByID(id);
 		account.setCheck(false);
 		modelAndView.addObject("account", account);
-		modelAndView.addObject("roles",roleService.getAllRole());
-        modelAndView.setViewName("accountform");
+		modelAndView.addObject("roles", roleService.getAllRole());
+		modelAndView.setViewName("accountform");
 		return modelAndView;
 	}
 

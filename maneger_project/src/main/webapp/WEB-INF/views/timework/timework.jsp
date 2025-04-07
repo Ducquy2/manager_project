@@ -10,7 +10,7 @@
 <base href="http://localhost:8080/" >
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 2 | Starter</title>
+<title>Starter</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -53,7 +53,7 @@
 			<!-- Logo -->
 			<a href="/welcome" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>E</b>O</span> <!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><b>E-Office</b> Software</span>
+				<span class="logo-lg">Software</span>
 			</a>
 
 			<!-- Header Navbar -->
@@ -167,8 +167,7 @@
 									class="img-circle" alt="User Image">
 
 									<p>
-										${username} - Web Developer <small>Member since Nov.
-											2019</small>
+										${username} - Web Developer <small></small>
 									</p></li>
 								<!-- Menu Body -->
 								<li class="user-body">
@@ -223,50 +222,33 @@
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="/welcome" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
 					<li class="header">HEADER</li>
 					<!-- Optionally, you can add icons to the links -->
 					<li class="active"><a href="/account" th:href="@{/account}"><i
-							class="glyphicon glyphicon-lock"></i> <span>Account
-								Management</span></a></li>
+							class="glyphicon glyphicon-lock"></i> <span>Quản lý tài khoản</span></a></li>
 
 					<li class="active"><spring:url value="/department"
 							var="listURL" /> <a class="" href="${listURL}" role="list"><i
-							class="glyphicon glyphicon-home"></i> <span>Department
-								Management</span></a></li>
+							class="glyphicon glyphicon-home"></i> <span>Quản lý phòng ban</span></a></li>
 
 					<li class="active"><spring:url value="/staff" var="listURL" />
 						<a class="" href="${listURL}" role="list"><i
-							class="glyphicon glyphicon-user"></i> <span>Staff
-								Management</span></a></li>
+							class="glyphicon glyphicon-user"></i> <span>Quản lý nhân viên</span></a></li>
 
 					<li class="active"><a class="" href="/project"><i
-							class="glyphicon glyphicon-glass"></i> <span>Project Management</span></a></li>
+							class="glyphicon glyphicon-glass"></i> <span>Quản lý dự án</span></a></li>
 
 					<li class="active"><spring:url value="/aboutapp" var="listURL" />
 						<a class="" href="${listURL}" role="list"><i
-							class="glyphicon glyphicon-info-sign"></i> <span>Introduce
-								About Web</span></a></li>
+							class="glyphicon glyphicon-info-sign"></i> <span>Giới thiệu về Web</span></a></li>
 
 					<li class="active"><spring:url value="/aboutteam"
 							var="listURL" /> <a class="" href="${listURL}" role="list"><i
-							class="glyphicon glyphicon-camera"></i> <span>Introduce
-								About Team</span></a></li>
+							class="glyphicon glyphicon-camera"></i> <span>Giới thiệu về đội ngũ!</span></a></li>
 
 					<li class="active"><spring:url value="/feedback" var="listURL" />
 						<a class="" href="${listURL}" role="list"><i
@@ -439,9 +421,9 @@
 
 		<footer class="main-footer">
 			<!-- To the right -->
-			<div class="pull-right hidden-xs">Nguyễn Đình Tài</div>
+			<div class="pull-right hidden-xs">Nguyễn Đức Quý</div>
 			<!-- Default to the left -->
-			<strong>Team Project <a href="/welcome">E-Office Software</a>
+			<strong>Project <a href="/welcome">Software</a>
 			</strong> 
 		</footer>
 

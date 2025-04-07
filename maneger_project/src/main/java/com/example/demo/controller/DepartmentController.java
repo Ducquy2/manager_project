@@ -22,18 +22,20 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 
+	// Xử lý GET request để lấy danh sách phòng ban
 	@GetMapping(value = { "/department" })
 	public ModelAndView getAllDepartment() {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
 		modelAndView.addObject("username", name);
-		
+
 		modelAndView.addObject("departments", departmentService.findAllDepartment());
 		modelAndView.setViewName("listdepartment");
 		return modelAndView;
 	}
 
+	// Xử lý GET request để hiển thị form thêm phòng ban
 	@GetMapping("/department/add")
 	public String add(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -45,6 +47,7 @@ public class DepartmentController {
 		return "departmentform";
 	}
 
+	// Xử lý GET request để hiển thị form chỉnh sửa phòng ban
 	@GetMapping("/department/{id}/edit")
 	public String edit(@PathVariable("id") int id, Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -52,22 +55,25 @@ public class DepartmentController {
 		model.addAttribute("username", name);
 		Department department = departmentService.findDepartmentById(id);
 		department.setCheck(false);
-		model.addAttribute("department",department );
+		model.addAttribute("department", department);
 		return "departmentform";
 	}
 
+	// Xử lý POST request để lưu phòng ban
 	@RequestMapping(value = "/department/save", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("department") Department department,RedirectAttributes redirect) {
+	public ModelAndView save(@ModelAttribute("department") Department department, RedirectAttributes redirect) {
 		ModelAndView modelAndView = new ModelAndView();
-		if(departmentService.saveDepartment(department)== null) {
+		if (departmentService.saveDepartment(department) == null) {
 			modelAndView.setViewName("redirect:/error/400");
 			return modelAndView;
-		};
+		}
+		;
 		redirect.addFlashAttribute("notification", "Bạn Lưu Thành Công Department !");
 		modelAndView.setViewName("redirect:/department");
 		return modelAndView;
 	}
 
+	// Xử lý GET request để xóa phòng ban
 	@GetMapping("/department/{id}/delete")
 	public String delete(@PathVariable int id, RedirectAttributes redirect) {
 		departmentService.deleteDepartment(id);
@@ -83,18 +89,18 @@ public class DepartmentController {
 //		return "redirect:/staff";
 //	}
 
+	// Xử lý GET request để xem chi tiết phòng ban
 	@RequestMapping(value = "/department/detail/{id}", method = RequestMethod.GET)
 	public ModelAndView detail(@PathVariable int id) {
 		ModelAndView modelAndView = new ModelAndView();
-		
+
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
 		modelAndView.addObject("username", name);
-	
+
 		modelAndView.addObject("department", departmentService.findDepartmentById(id));
 		modelAndView.setViewName("detaildepartment");
 		return modelAndView;
 	}
 
-	
 }

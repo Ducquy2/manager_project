@@ -1,0 +1,5 @@
+tạo schema project_manager trong DB
+
+insert 3 role trong bảng role trong DB (chú ý viết hoa role) 1 ADMIN 2 MANAGER 3 STAFF
+
+sửa "none" trong file application.properties thành "update" sau đó tiến hành chạy để tự động rent bảng. sau khi chạy xong sửa lại như cũ là none.

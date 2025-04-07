@@ -219,35 +219,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
 					<li class="header">HEADER</li>
 					<!-- Optionally, you can add icons to the links -->
 					<li class="active"><a href="#" th:href="@{/staff}"><i
-							class="fa fa-link"></i> <span>Account Manager</span></a></li>
+							class="fa fa-link"></i> <span>Quản lý tài khoản</span></a></li>
 					<li class="active"><spring:url value="/staff" var="listURL" />
 						<a class="" href="${listURL}" role="list"><i
-							class="fa fa-link"></i> <span>Staff Manager</span></a></li>
+							class="fa fa-link"></i> <span>Quản lý nhân viên</span></a></li>
 					<li class="treeview"><a href="#"><i class="fa fa-link"></i>
-							<span>Project Manager</span> <i
+							<span>Quản lý dự án</span> <i
 							class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu">
-							<li><a href="#">Project Manager</a></li>
-							<li><a href="#">Task Manager</a></li>
+							<li><a href="#">Quản lý dự án</a></li>
+							<li><a href="#">Quản lý nhiệm vụ</a></li>
 						</ul></li>
 				</ul>
 				<!-- /.sidebar-menu -->

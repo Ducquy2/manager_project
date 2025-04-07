@@ -25,13 +25,14 @@ import com.example.demo.service.StaffService;
 public class TimeWorkController {
 	@Autowired
 	private EventsService eventsService;
-	
+
 	@Autowired
 	private StaffService staffService;
 
+	// Xử lý yêu cầu GET để lấy danh sách sự kiện của nhân viên theo ID
 	@GetMapping(value = "staff/{id}/timework")
 	@ResponseBody
-	public List<Events> getInfoTime(@PathVariable("id") int id,HttpSession request) {
+	public List<Events> getInfoTime(@PathVariable("id") int id, HttpSession request) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
@@ -42,36 +43,40 @@ public class TimeWorkController {
 			modelAndView.setViewName("error/403");
 			return null;
 		}
-		
-		 modelAndView.addObject("listevents",listEvents.get(0).getTitle());
-		 System.out.println(listEvents.get(0));
+
+		modelAndView.addObject("listevents", listEvents.get(0).getTitle());
+		System.out.println(listEvents.get(0));
 		modelAndView.setViewName("timework/timework");
 		System.out.println("session" + request.getId());
 		return listEvents;
 	}
-	@GetMapping(value="staff/{id}/timeworks")
+
+	// Xử lý yêu cầu GET để hiển thị giao diện thêm sự kiện
+	@GetMapping(value = "staff/{id}/timeworks")
 	public ModelAndView getString(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView();
 		Events event = new Events();
-		modelAndView.addObject("event",event);
-		modelAndView.addObject("staff",id);
-		modelAndView.addObject("staffs",staffService.findOne(id));
+		modelAndView.addObject("event", event);
+		modelAndView.addObject("staff", id);
+		modelAndView.addObject("staffs", staffService.findOne(id));
 		modelAndView.setViewName("timework/timework");
 		return modelAndView;
-	} 
-	
-	@PostMapping(value="staff/{id}/timework/saveevent")
-	public ModelAndView saveEvent(@ModelAttribute("event") Events event,@PathVariable("id") int id,RedirectAttributes redirect) {
+	}
+
+	// Xử lý yêu cầu POST để lưu sự kiện mới
+	@PostMapping(value = "staff/{id}/timework/saveevent")
+	public ModelAndView saveEvent(@ModelAttribute("event") Events event, @PathVariable("id") int id,
+			RedirectAttributes redirect) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("staff",id);
+		modelAndView.addObject("staff", id);
 		Staff staff = staffService.findOne(id);
 		event.setStaffId(staff);
-		if(event.equals(null)) {
+		if (event.equals(null)) {
 			modelAndView.setViewName("error/500");
 		}
 		eventsService.save(event);
 		redirect.addFlashAttribute("notification", "Bạn Đã Thêm Thành Công Event!");
-		modelAndView.setViewName("redirect:/staff/"+id+"/timeworks");
+		modelAndView.setViewName("redirect:/staff/" + id + "/timeworks");
 		return modelAndView;
 	}
 }

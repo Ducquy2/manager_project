@@ -48,6 +48,7 @@ public class ChartController {
 		return "home";
 	}
 
+	// Xử lý GET request để hiển thị biểu đồ cột cho công việc
 	@GetMapping("/task/{id}/displayBarGraph")
 	public String taskBarGraph(@PathVariable("id") int id, Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -70,6 +71,7 @@ public class ChartController {
 		return "intror/barGraph";
 	}
 
+	// Xử lý GET request để hiển thị biểu đồ tròn cho phản hồi
 	@GetMapping("/displayPieChart")
 	public String pieChart(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -96,51 +98,53 @@ public class ChartController {
 				}
 			}
 		}
-		int sum = demFaire + demGood + demPoor + demVeryGood;
+		int sum = demFaire + demGood + demPoor + demVeryGood; // Tính tổng số phản hồi
 		System.out
 				.println("veery good" + demVeryGood + " good" + demGood + "faire : " + demFaire + "poor : " + demPoor);
-		model.addAttribute("excellent", demVeryGood * 100 / sum);
-		model.addAttribute("good", demGood * 100 / sum);
-		model.addAttribute("faire", demFaire * 100 / sum);
-		model.addAttribute("poor", demPoor * 100 / sum);
-		return "intror/pieChart";
+		model.addAttribute("excellent", demVeryGood * 100 / sum); // Thêm tỷ lệ phần trăm "excellent" vào model
+		model.addAttribute("good", demGood * 100 / sum); // Thêm tỷ lệ phần trăm "good" vào model
+		model.addAttribute("faire", demFaire * 100 / sum); // Thêm tỷ lệ phần trăm "faire" vào model
+		model.addAttribute("poor", demPoor * 100 / sum); // Thêm tỷ lệ phần trăm "poor" vào model
+		return "intror/pieChart"; // Trả về view biểu đồ tròn
 	}
 
-	@RequestMapping(value = "/task/{id}/taskprogress/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/task/{id}/taskprogress/save", method = RequestMethod.POST) // Xử lý POST request để lưu
+																							// tiến độ công việc
 	public ModelAndView save(@PathVariable("id") int id, @ModelAttribute("taskprogress") TaskProgress taskprogress,
 			RedirectAttributes redirect) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
 		modelAndView.addObject("username", name);
-		
+
 		taskProgressService.createTaskProgress(taskprogress);
 		redirect.addFlashAttribute("notification", "bạn đã thực hiện ghi tiến độ thành công !");
 		modelAndView.setViewName("redirect:/task/{id}/displayBarGraph");
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/task/{id}/taskprogress/save", method = RequestMethod.GET)
+	@RequestMapping(value = "/task/{id}/taskprogress/save", method = RequestMethod.GET) // Xử lý GET request để hiển thị
+																						// form thêm tiến độ
 	public ModelAndView add(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
 		modelAndView.addObject("username", name);
 		Task task = taskService.findById(id);
 		Set<Task> previousTasks = task.getPreviousTask();
 		for (Task previousTask : previousTasks) {
-			if(previousTask.getTaskState()<100) {
+			if (previousTask.getTaskState() < 100) {
 				modelAndView.setViewName("/error/403");
 				return modelAndView;
 			}
 		}
-		modelAndView.addObject("task", task);
-		modelAndView.addObject("taskprogress", new TaskProgress());
-		modelAndView.setViewName("progresstaskform");
-		return modelAndView;
+		modelAndView.addObject("task", task); // Thêm công việc vào model
+		modelAndView.addObject("taskprogress", new TaskProgress()); // Thêm đối tượng TaskProgress rỗng vào model
+		modelAndView.setViewName("progresstaskform"); // Thiết lập view là progresstaskform
+		return modelAndView; // Trả về ModelAndView
 	}
 
-	@GetMapping("/project/{id}/progress")
+	@GetMapping("/project/{id}/progress") // Xử lý GET request để hiển thị biểu đồ tiến độ dự án
 	public String projectBarGraph(@PathVariable("id") int id, Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); // get logged in username
@@ -148,18 +152,19 @@ public class ChartController {
 		Project project = projectService.findByProjectId(id);
 		List<ProjectProgress> workLogList = projectProgressService.findByProjectIDOrderByDateCreateAsc(id);
 		List<Date> listDate;
-		if (workLogList.size() > 0) {
+		if (workLogList.size() > 0) { // Nếu có tiến độ
 			listDate = Util.getListDate(project.getStartDate(), project.getDeadlineDate(),
-					workLogList.get(workLogList.size() - 1).getDateLog());
-		} else {
-			listDate = Util.getListDate(project.getStartDate(), project.getDeadlineDate(), new Date(0));
+					workLogList.get(workLogList.size() - 1).getDateLog()); // Lấy danh sách ngày từ ngày bắt đầu đến
+																			// ngày cuối cùng
+		} else { // Nếu không có tiến độ
+			listDate = Util.getListDate(project.getStartDate(), project.getDeadlineDate(), new Date(0)); // Lấy danhsách ngày mặc định
 		}
 		model.addAttribute("project", project);
-		model.addAttribute("projectprogress", workLogList);
-		model.addAttribute("listdatelog", Util.getLabelFromListDate(listDate));
-		model.addAttribute("expect", Util.getListExpectProgress(project.getStartDate(), project.getDeadlineDate()));
-		model.addAttribute("actual", Util.getListActualProjectProgress(project.getStartDate(), workLogList));
-		return "intror/barGraphProject";
+        model.addAttribute("projectprogress", workLogList); 
+        model.addAttribute("listdatelog", Util.getLabelFromListDate(listDate)); 
+        model.addAttribute("expect", Util.getListExpectProgress(project.getStartDate(), project.getDeadlineDate())); // Thêm tiến độ kỳ vọng
+        model.addAttribute("actual", Util.getListActualProjectProgress(project.getStartDate(), workLogList)); // Thêm tiến độ thực tế
+        return "intror/barGraphProject";
 	}
 
 }

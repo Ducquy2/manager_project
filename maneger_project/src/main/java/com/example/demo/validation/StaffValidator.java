@@ -10,34 +10,35 @@
 //import com.example.demo.service.StaffService;
 //
 //@Component
-//public class StaffValidator implements Validator{
-//    @Autowired
-//    private StaffService userService;
-//    
-//    @Override
-//    public boolean supports(Class<?> aClass) {
-//        return Staff.class.equals(aClass);
-//    }
-//    @Override
-//    public void validate(Object o, Errors errors) {
-//    	Staff user = (Staff) o;
+//public class StaffValidator implements Validator {
+//	@Autowired
+//	private StaffService userService;
 //
-//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-//        if (user.getUsename().length() < 6 || user.getUsename().length() > 32) {
-//            errors.rejectValue("username", "Size.userForm.username");
-//        }
-//        if (userService.findByUsername(user.getUsename()) != null) {
-//            errors.rejectValue("username", "Duplicate.userForm.username");
-//        }
+//	@Override
+//	public boolean supports(Class<?> aClass) {
+//		return Staff.class.equals(aClass);
+//	}
 //
-//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-//        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-//            errors.rejectValue("password", "Size.userForm.password");
-//        }
+//	@Override
+//	public void validate(Object o, Errors errors) {
+//		Staff user = (Staff) o;
 //
-////        if (!user.getPasswordConfirm().equals(user.getPassword())) {
-////            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
-////        }
-//    }
+//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
+//		if (user.getUsename().length() < 6 || user.getUsename().length() > 32) {
+//			errors.rejectValue("username", "Size.userForm.username");
+//		}
+//		if (userService.findByUsername(user.getUsename()) != null) {
+//			errors.rejectValue("username", "Duplicate.userForm.username");
+//		}
+//
+//		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+//		if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+//			errors.rejectValue("password", "Size.userForm.password");
+//		}
+//
+//		if (!user.getPasswordConfirm().equals(user.getPassword())) {
+//			errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+//		}
+//	}
 //
 //}

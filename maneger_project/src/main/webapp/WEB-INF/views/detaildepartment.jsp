@@ -222,19 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
@@ -274,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					<img alt=""
 						src="https://www.insidehighered.com/sites/default/server_files/media/62786426_thumbnail%20%282%29.jpg"
 						style="width: 100%; height: 500px;">
-					<h3 style="color: green;">DETAIL DEPARTMENT INFORMATION</h3>
+					<h3 style="color: green;">THÔNG TIN CHI TIẾT CỦA PHÒNG BAN</h3>
 					<!-- Info Boxes -->
 					<div class="row">
 						<div class="col-md-3 col-sm-6 col-xs-12">
@@ -328,9 +316,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<!-- Main Footer -->
 		<footer class="main-footer">
 			<!-- To the right -->
-			<div class="pull-right hidden-xs">Nguyễn Đình Tài</div>
+			<div class="pull-right hidden-xs">Nguyễn Đức Quý</div>
 			<!-- Default to the left -->
-			<strong>Team Project <a href="/welcome">E-Office Software</a>
+			<strong>Team Project <a href="/welcome">Software</a>
 			</strong> 
 		</footer>
 

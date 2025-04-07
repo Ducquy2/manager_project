@@ -222,19 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
@@ -275,33 +263,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				<nav class="navbar navbar-inverse">
 					<div class="container-fluid">
 						<div class="navbar-header">
-							<a class="navbar-brand" href="/project">PROJECT</a>
+							<a class="navbar-brand" href="/project">Dự án</a>
 						</div>
 						<ul class="nav navbar-nav">
 							<li class="active"><a
-								href="/project/detail/${project.projectId} ">Project width
-									name : ${project.projectName}</a></li>
+								href="/project/detail/${project.projectId} ">Tên Dự Án : ${project.projectName}</a></li>
 
 							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">Staff Of Project <span
+								data-toggle="dropdown" href="#">Nhân Viên Của Dự Án<span
 									class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="/project/${project.projectId}/staff">View
-											list staff of project</a></li>
-									<li><a href="/project/${project.projectId}/staff/add">Add
-											Staff In Project</a></li>
+									<li><a href="/project/${project.projectId}/staff">Xem danh sách 
+										nhân viên của dự án</a></li>
+									<li><a href="/project/${project.projectId}/staff/add">Thêm Nhân Viên Vào Dự Án</a></li>
 								</ul></li>
 
 							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">Task Of Project<span
+								data-toggle="dropdown" href="#">Nhiệm vụ của dự án<span
 									class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="/project/${project.projectId}/task">View
-											list task of project</a></li>
-									<li><a href="/project/${project.projectId}/addtask">Create
-											Task In Project</a></li>
+									<li><a href="/project/${project.projectId}/task">Xem danh sách nhiệm vụ của dự án</a></li>
+									<li><a href="/project/${project.projectId}/addtask">Tạo nhiệm vụ trong dự án</a></li>
 								</ul></li>
-							<li><a href="/project/${project.projectId}/progress">Project Progress
+							<li><a href="/project/${project.projectId}/progress">Tiến độ dự án
 									 </a></li>
 						</ul>
 					</div>

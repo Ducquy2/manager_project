@@ -224,23 +224,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-									<li class="header">TIÊU ĐỀ</li>
+									<li class="header">HEADER</li>
 									<!-- Optionally, you can add icons to the links -->
 									<li class="active"><a href="/account"><i
 											class="glyphicon glyphicon-lock"></i> <span>Quản lý tài khoản</span></a></li>
@@ -290,9 +278,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								onblur="if (this.value == '') {this.value = 'Type here';}"
 								required="true" path="name" />
 							<h5>Email</h5>
-							<form:input type="text" value="tuhung204@mail.com"
+							<form:input type="text" value="20211284@eaut.edu.vn"
 								onfocus="this.value = '';"
-								onblur="if (this.value == '') {this.value = 'tuhung204@mail.com';}"
+								onblur="if (this.value == '') {this.value = '20211284@eaut.edu.vn';}"
 								required="true" path="email" />
 							<h5>
 								Your Review <span>( Tips and Guidelines ) </span>

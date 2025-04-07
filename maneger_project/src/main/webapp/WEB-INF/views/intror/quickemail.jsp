@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <base href="http://localhost:8080/">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 2 | Starter</title>
+<title>Starter</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -228,23 +228,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-									<li class="header">TIÊU ĐỀ</li>
+									<li class="header">HEADER</li>
 									<!-- Optionally, you can add icons to the links -->
 									<li class="active"><a href="/account"><i
 											class="glyphicon glyphicon-lock"></i> <span>Quản lý tài khoản</span></a></li>

@@ -6,7 +6,7 @@
 			<!-- To the right -->
 			<div class="pull-right hidden-xs">Nguyễn Đức Quý</div>
 			<!-- Default to the left -->
-			<strong>Team Project <a href="/welcome">Software</a>
+			<strong>Project <a href="/welcome">Software</a>
 			</strong> 
 		</footer>
 

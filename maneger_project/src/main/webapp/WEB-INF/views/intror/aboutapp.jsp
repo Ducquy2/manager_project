@@ -222,23 +222,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+			
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-									<li class="header">TIÊU ĐỀ</li>
+									<li class="header">HEADER</li>
 									<!-- Optionally, you can add icons to the links -->
 									<li class="active"><a href="/account"><i
 											class="glyphicon glyphicon-lock"></i> <span>Quản lý tài khoản</span></a></li>
@@ -274,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Page Header <small>Optional description</small>
+					
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -326,7 +314,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									<!-- /.box-header -->
 									<div class="box-body">
 										<p>Các bạn có thể tải template tại đây.</p>
-										<a href="http://almsaeedstudio.com/download/AdminLTE-dist"
+										<a href="https://adminlte.io"
 											class="btn btn-primary"><i class="fa fa-download"></i>
 											Download</a>
 									</div>
@@ -346,7 +334,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									<div class="box-body">
 										<p>Source Code project mình đã chia sẻ trên web mọi người
 											có thể tham khảo tại đây.</p>
-										<a href="https://github.com/letuhung204/graduation_project"
+										<a href="https://github.com/Ducquy2/manager_project"
 											class="btn btn-danger"><i class="fa fa-download"></i>
 											Download</a>
 									</div>
@@ -447,10 +435,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<h3 class="control-sidebar-heading">General Settings</h3>
 
 						<div class="form-group">
-							<label class="control-sidebar-subheading"> Report panel
-								usage <input type="checkbox" class="pull-right" checked>
+							<label class="control-sidebar-subheading"> Report panel usage <input type="checkbox" class="pull-right" checked>
 							</label>
-
 							<p>Some information about this general settings option</p>
 						</div>
 						<!-- /.form-group -->

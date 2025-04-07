@@ -35,7 +35,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="/login"></b>Login</a>
+			<a href="/login"></b>Đăng nhập</a>
 		</div>
 		<c:if test="${not empty param.error}">
 			<div class="alert alert-danger" role="alert">Sai Tên Hoặc Mật
@@ -78,13 +78,13 @@
 			<div class="social-auth-links text-center">
 				<p>- OR -</p>
 				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i
-					class="fa fa-facebook"></i> Đăng nhập bằng Facebook</a> <a href="#"
-					class="btn btn-block btn-social btn-google btn-flat"><i
+					class="fa fa-facebook"></i> Đăng nhập bằng Facebook</a> 
+				<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i
 					class="fa fa-google-plus"></i> Đăng nhập bằng Google+</a>
 			</div>
 			<!-- /.social-auth-links -->
 
-			<a href="#">Tôi quên mật khẩu của tôi</a><br> <a href="/registration"
+			<a href="#">Quên mật khẩu</a><br> <a href="/registration"
 				class="text-center">Đăng ký thành viên mới</a>
 
 		</div>

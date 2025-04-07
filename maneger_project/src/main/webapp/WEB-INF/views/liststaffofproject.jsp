@@ -225,19 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
@@ -274,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Page Header <small>Optional description</small>
+					Danh sách nhân viên của dự án <small></small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -291,16 +279,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</div>
 						<ul class="nav navbar-nav">
 							<li class="active"><a
-								href="/project/detail/${project.projectId} ">Project width
-									name : ${project.projectName}</a></li>
-							<li><a href="/project/${project.projectId}/staff">Staff
-									Of Project</a></li>
-							<li><a href="/project/${project.projectId}/task">Task Of
-									Project</a></li>
-							<li><a href="/project/${project.projectId}/staff/add">Add
-									Staff In Project</a></li>
-							<li><a href="/project/${project.projectId}/progress">Project
-									Progress </a></li>
+								href="/project/detail/${project.projectId} ">Tên Dự Án : ${project.projectName}</a></li>
+							<li><a href="/project/${project.projectId}/staff">Nhân Viên Của Dự Án</a></li>
+							<li><a href="/project/${project.projectId}/task">Nhiệm Vụ Của Dự Án</a></li>
+							<li><a href="/project/${project.projectId}/staff/add">Thêm Nhân Viên Vào Dự Án</a></li>
+							<li><a href="/project/${project.projectId}/progress">Tiến độ dự án</a></li>
 
 						</ul>
 					</div>

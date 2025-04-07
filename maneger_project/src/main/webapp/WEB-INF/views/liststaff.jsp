@@ -225,19 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
@@ -274,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Data Tables <small>advanced tables</small>
+					Quản lý nhân viên <small></small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="/welcome"><i class="fa fa-dashboard"></i>
@@ -296,12 +284,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					<div class="col-xs-12">
 						<div class="box">
 							<div class="box-header">
-								<h3 class="box-title">Data Table Staff</h3>
+								<h3 class="box-title">Danh sách nhân viên</h3>
 							</div>
 							<div class="box-header">
 								<spring:url value="/staff/add" var="addURL" />
 								<a class="btn btn-primary" href="${addURL}" role="button"><i
-									class="glyphicon glyphicon-plus"></i> Add Staff</a>
+									class="glyphicon glyphicon-plus"></i> Add nhân viên</a>
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body">

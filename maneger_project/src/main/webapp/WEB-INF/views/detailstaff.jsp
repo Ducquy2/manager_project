@@ -166,8 +166,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									class="img-circle" alt="User Image">
 
 									<p>
-										${username} - Web Developer <small>Member since Nov.
-											2019</small>
+										${username} - Web Developer <small></small>
 									</p></li>
 								<!-- Menu Body -->
 								<li class="user-body">
@@ -222,19 +221,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
@@ -273,7 +260,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<section class="content">
 <!-- 					<img alt="" src="images/staff1.png" -->
 <!-- 						style="width: 100%; height: 400px;"> -->
-					<h3 style="color: green;">DETAIL STAFF INFORMATION</h3>
+					<h3 style="color: green;">THÔNG TIN NHÂN VIÊN CHI TIẾT</h3>
 					<!-- Info Boxes -->
 					<div class="row">
 						<div class="col-md-3 col-sm-6 col-xs-12">

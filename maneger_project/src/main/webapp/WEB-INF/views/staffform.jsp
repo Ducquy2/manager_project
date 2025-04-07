@@ -225,53 +225,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-					<li class="header">HEADER</li>
-					<!-- Optionally, you can add icons to the links -->
-					<li class="active"><a href="/account"><i
-							class="glyphicon glyphicon-lock"></i> <span>Account
-								Management</span></a></li>
-					<li class="active"><a class="" href="/department"><i
-							class="glyphicon glyphicon-home"></i> <span>Department
-								Management</span></a></li>
+													<li class="header">HEADER</li>
+																					<!-- Optionally, you can add icons to the links -->
+													<li class="active"><a href="/account"><i
+													class="glyphicon glyphicon-lock"></i> <span>Quản lý tài khoản</span></a></li>
+													<li class="active"><a class="" href="/department"><i
+														class="glyphicon glyphicon-home"></i> <span>Quản lý phòng ban</span></a></li>
 
-					<li class="active"><a class="" href="/staff"><i
-							class="glyphicon glyphicon-user"></i> <span>Staff
-								Management</span></a></li>
+													<li class="active"><a class="" href="/staff"><i
+														class="glyphicon glyphicon-user"></i> <span>Quản lý nhân viên</span></a></li>
 
-					<li class="active"><a class="" href="/project"><i
-							class="glyphicon glyphicon-glass"></i> <span>Project
-								Management</span></a></li>
-					<li class="active"><a class="" href="/getfeedback"><i
-							class="glyphicon glyphicon-wrench"></i> <span>FeedBack
-								Management</span></a></li>
-					<li class="active"><a class="" href="/aboutapp"><i
-							class="glyphicon glyphicon-info-sign"></i> <span>Introduce
-								About Web</span></a></li>
+													<li class="active"><a class="" href="/project"><i
+														class="glyphicon glyphicon-glass"></i> <span>Quản lý dự án</span></a></li>
+													<li class="active"><a class="" href="/getfeedback"><i
+														class="glyphicon glyphicon-wrench"></i> <span>Quản lý phản hồi</span></a></li>
+													<li class="active"><a class="" href="/aboutapp"><i
+														class="glyphicon glyphicon-info-sign"></i> <span>Giới thiệu về Web</span></a></li>
 
-					<li class="active"><a class="" href="/aboutteam"><i
-							class="glyphicon glyphicon-camera"></i> <span>Introduce
-								About Team</span></a></li>
+													<li class="active"><a class="" href="/aboutteam"><i
+														class="glyphicon glyphicon-camera"></i> <span>Giới thiệu về đội ngũ!</span></a></li>
 
-					<li class="active"><a class="" href="/feedback/add"><i
-							class="glyphicon glyphicon-question-sign"></i> <span>Help
-								Us !</span></a></li>
-				</ul>
+													<li class="active"><a class="" href="/feedback/add"><i
+														class="glyphicon glyphicon-question-sign"></i> <span>Help Us !</span></a></li>
+												</ul>
 				<!-- /.sidebar-menu -->
 			</section>
 			<!-- /.sidebar -->
@@ -282,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Page Header <small>Optional description</small>
+					Quản lý nhân viên <small></small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -298,7 +278,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<tr>
 								<td colspan="1">
 									<!-- 								<img alt="" src="/images/staff.png" --> <!-- 									style="width: 100%; height: 120%"> -->
-									<h2>Staff Form</h2> <spring:url value="/staff/save"
+									<h2>Bảng nhân viên</h2> <spring:url value="/staff/save"
 										var="saveURL" />
 									<fieldset>
 										<form:form modelAttribute="staff" method="POST"

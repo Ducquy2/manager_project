@@ -228,19 +228,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
@@ -294,15 +282,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</div>
 						<ul class="nav navbar-nav">
 							<li class="active"><a
-								href="/project/detail/${project.projectId} ">Project width
-									name : ${project.projectName}</a></li>
-							<li><a href="/project/${project.projectId}/staff">Staff
-									Of Project</a></li>
-							<li><a href="/project/${project.projectId}/task">Task Of
-									Project</a></li>
-							<li><a href="/project/${project.projectId}/staff/add">Add
-									Staff In Project</a></li>
-							<li><a href="/project/${project.projectId}/progress">Project Progress
+								href="/project/detail/${project.projectId} ">Tên dự án : ${project.projectName}</a></li>
+							<li><a href="/project/${project.projectId}/staff">Nhân viên của dự án</a></li>
+							<li><a href="/project/${project.projectId}/task">Nhiệm vụ của dự án</a></li>
+							<li><a href="/project/${project.projectId}/staff/add">Thêm Nhân Viên Vào Dự Án</a></li>
+							<li><a href="/project/${project.projectId}/progress">Tiến độ dự án
 									 </a></li>
 
 						</ul>
@@ -323,7 +307,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 									value="project/${project.projectId}/staff/${staff.staffId}/task/add"
 									var="addURL" />
 								<a class="btn btn-primary" href="${addURL}" role="button"><i
-									class="glyphicon glyphicon-plus"></i> Create Task for Staff : <c:out
+									class="glyphicon glyphicon-plus"></i> Thêm nhiệm vụ cho nhân viên : <c:out
 										value="${staff.fullName}" /></a>
 							</div>
 							<!-- /.box-header -->
@@ -356,8 +340,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 															<c:out value="${task.taskState}" />%
 														</div>
 													</div></td>
-												<td><a href="/task/detail/${task.taskId}">detail
-														task</a></td>
+												<td><a href="/task/detail/${task.taskId}">nhiệm vụ chi tiết</a></td>
 											</tr>
 										</c:forEach>
 									</tbody>

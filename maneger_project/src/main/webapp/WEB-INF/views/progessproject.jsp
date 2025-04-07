@@ -14,7 +14,7 @@
             src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@1.8.0"></script>
 </head>
 <body>
-<h1>Project progress management</h1>
+<h1>Quản lý tiến độ dự án</h1>
 <div style="width: 60%">
     <canvas id="lineChart"></canvas>
 </div>

@@ -39,106 +39,109 @@ public class StaffController {
 	@Autowired
 	private ProjectService projectService;
 
-	@GetMapping("/staff")
+	@GetMapping("/staff") // Xử lý GET request để lấy danh sách nhân viên
 	public ModelAndView list() {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
 		modelAndView.addObject("username", name);
-		
 		modelAndView.addObject("staffs", staffService.findAll());
 		modelAndView.setViewName("liststaff");
 		return modelAndView;
 	}
 
-	@GetMapping("/staff/add")
+	@GetMapping("/staff/add") // Xử lý GET request để hiển thị form thêm nhân viên
 	public ModelAndView add() {
 		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication(); 
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
 		modelAndView.addObject("username", name);
+		List<Account> listAccount = accountService.findAllAccount(); // Lấy danh sách tài khoản
 		
-		List<Account> listAccount = accountService.findAllAccount();
-		Map<Integer, String> accounts = new HashMap<>();
-		listAccount.forEach(item -> accounts.put(item.getAccountId(), item.getAccountName()));
-		modelAndView.addObject("accounts", accounts);
-
-		List<Department> listDepartment = departmentService.findAllDepartment();
-		Map<Integer, String> departments = new HashMap<>();
-		listDepartment.forEach(item -> departments.put(item.getDepartmentId(), item.getDepartmentName()));
+		Map<Integer, String> accounts = new HashMap<>(); // Tạo map để lưu ID và tên tài khoản
+		
+		listAccount.forEach(item -> accounts.put(item.getAccountId(), item.getAccountName())); // Điền dữ liệu vào map tài khoản
+		
+		modelAndView.addObject("accounts", accounts); // Thêm map tài khoản vào model
+		
+		List<Department> listDepartment = departmentService.findAllDepartment(); // Lấy danh sách phòng ban
+		
+		Map<Integer, String> departments = new HashMap<>(); // Tạo map để lưu ID và tên phòng ban
+		
+		// Điền dữ liệu vào map phòng ban
+		listDepartment.forEach(item -> departments.put(item.getDepartmentId(), item.getDepartmentName())); 
 		modelAndView.addObject("departments", departments);
-		
-		modelAndView.addObject("staff", new Staff());
+		modelAndView.addObject("staff", new Staff()); 
 		modelAndView.setViewName("staffform");
 		return modelAndView;
 	}
 
-	@GetMapping("/staff/{id}/edit")
+	@GetMapping("/staff/{id}/edit") // Xử lý GET request để hiển thị form chỉnh sửa nhân viên
 	public ModelAndView edit(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
 		modelAndView.addObject("username", name);
 		
-		modelAndView.addObject("staff", staffService.findOne(id));
-		modelAndView.addObject("departments", departmentService.findAllDepartment());
+		modelAndView.addObject("staff", staffService.findOne(id)); // Thêm thông tin nhân viên theo ID vào model
+		
+		modelAndView.addObject("departments", departmentService.findAllDepartment()); // Thêm danh sách phòng ban vào model
+		
 		modelAndView.addObject("accounts", accountService.findAllAccount());
 		modelAndView.setViewName("staffform");
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/staff/save", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("staff") Staff staff,RedirectAttributes redirect) {
+	@RequestMapping(value = "/staff/save", method = RequestMethod.POST) // Xử lý POST request để lưu nhân viên
+	public ModelAndView save(@ModelAttribute("staff") Staff staff, RedirectAttributes redirect) {
 		ModelAndView modelAndView = new ModelAndView();
-		staffService.save(staff);
+		staffService.save(staff); // Lưu nhân viên vào cơ sở dữ liệu
 		redirect.addFlashAttribute("successMessage", "Saved staff successfully!");
 		modelAndView.setViewName("redirect:/staff");
 		return modelAndView;
 	}
 
-	@GetMapping("/staff/{id}/delete")
-	public String delete(@PathVariable int id,RedirectAttributes redirect) {
-		staffService.delete(id);
+	@GetMapping("/staff/{id}/delete") // Xử lý GET request để xóa nhân viên
+	public String delete(@PathVariable int id, RedirectAttributes redirect) {
+		staffService.delete(id); // Gọi service để xóa nhân viên
 		redirect.addFlashAttribute("successMessage", "Delete staff successfully!");
 		return "redirect:/staff";
 	}
 
-	@GetMapping("/staff/search")
+	@GetMapping("/staff/search") // Xử lý GET request để tìm kiếm nhân viên
 	public String search(@RequestParam("term") String term) {
-		List<Staff> list = staffService.search(term);
+		List<Staff> list = staffService.search(term); // Tìm kiếm nhân viên theo từ khóa
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("staffs", list);
+		modelAndView.addObject("staffs", list); // Thêm danh sách nhân viên tìm được vào model
 		return "redirect:/staff";
 	}
 
-	@RequestMapping(value = "/staff/detail/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/staff/detail/{id}", method = RequestMethod.GET) // Xử lý GET request để xem chi tiết nhân viên
 	public ModelAndView detail(@PathVariable int id) {
-		
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
 		modelAndView.addObject("username", name);
-		if(staffService.findOne(id) == null) {
-			modelAndView.setViewName("error/404");
-		}else {
+		if (staffService.findOne(id) == null) { // Kiểm tra nếu nhân viên không tồn tại
+			modelAndView.setViewName("error/404"); // Thiết lập view là error/404
+		} else { // Nếu nhân viên tồn tại
 			modelAndView.addObject("staff", staffService.findOne(id));
 			modelAndView.setViewName("detailstaff");
 		}
 		return modelAndView;
 	}
 
-	@GetMapping(value = "project/{id}/staff/{idstaff}/task")
+	@GetMapping(value = "project/{id}/staff/{idstaff}/task") // Xử lý GET request để lấy danh sách công việc của nhân
+																// viên trong dự án
 	public ModelAndView getTask(@PathVariable int id, @PathVariable int idstaff) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String name = auth.getName(); // get logged in username
-		modelAndView.addObject("username", name);
-		
+		String name = auth.getName(); // Lấy tên người dùng đang đăng nhập
+		modelAndView.addObject("username", name); 
 		modelAndView.addObject("project", projectService.getProjecByiD(id));
 		modelAndView.addObject("staff", staffService.findOne(idstaff));
 		modelAndView.addObject("tasks", staffService.getListTask(idstaff));
-		modelAndView.setViewName("listtaskofstaff");
+		modelAndView.setViewName("listtaskofstaff"); 
 		return modelAndView;
-
 	}
 }

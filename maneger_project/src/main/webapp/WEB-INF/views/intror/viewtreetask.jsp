@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Logo -->
 			<a href="#" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>R</b>Đ</span> <!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><b>Rạng Đông</b> Company</span>
+				<span class="logo-lg"><b>DucQuy</b> Company</span>
 			</a>
 
 			<!-- Header Navbar -->
@@ -223,23 +223,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</div>
 
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control"
-							placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
+
 
 				<!-- Sidebar Menu -->
 				<ul class="sidebar-menu">
-									<li class="header">TIÊU ĐỀ</li>
+									<li class="header">HEADER</li>
 									<!-- Optionally, you can add icons to the links -->
 									<li class="active"><a href="/account"><i
 											class="glyphicon glyphicon-lock"></i> <span>Quản lý tài khoản</span></a></li>

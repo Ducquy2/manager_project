@@ -177,8 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                 <p>
                                     ${username} - Web Developer
-                                    <small>Member since Nov.
-                                        2019
+                                    <small>
                                     </small>
                                 </p>
                             </li>
@@ -236,19 +235,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </div>
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control"
-                           placeholder="Search..."> <span class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-                                    class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-                </div>
-            </form>
-            <!-- /.search form -->
+
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
@@ -291,8 +278,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Page Header
-                <small>Optional description</small>
+                Bảng nhiệm vụ cho nhân viên
+                <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -308,7 +295,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tbody>
                     <tr>
                         <td colspan="1">
-                            <h2>Task Form</h2> <spring:url value="project/${task.projectId.projectId}/task/save" var="saveURL"/>
+                            <h2>Bảng nhiệm vụ</h2> <spring:url value="project/${task.projectId.projectId}/task/save" var="saveURL"/>
                             <fieldset>
                                 <form:form modelAttribute="task" method="POST"
                                            action="${saveURL}" cssClass="well form-horizontal"
@@ -484,7 +471,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                         <c:if test="${not empty task.taskId }">
                                             <label class="control-label col-sm-2 requiredField">
-                                                Task Progress <span class="asteriskField"> * </span>
+                                                Tiến độ nhiệm vụ <span class="asteriskField"> * </span>
                                             </label>
                                             <div class="form-group">
                                                 <div class="col-md-8 inputGroupContainer">
